@@ -9,50 +9,55 @@ import types "corestat.github.io/cue/modeler/database/types"
 
 	_parent?: string
 	_name: string
-	_renamedFrom?: string
+	renamedFrom?: string
 }
 
-#Database: #Base & {
+#Database: {
+	#Base
 	version: types.#Version
 	environment: types.#Environment
 	schemas: [string]: #Schema
 }
 
-#Schema: #Base & {
+#Schema: {
+	#Base
 	tables: [string]: #Table
 	sequences?: [string]: #Sequence
 }
 
-#Sequence: #Base & {
+#Sequence: {
+	#Base
 	min: int & >= 0 | *0
 	max: int & >= 0 & <= 9999999 | *9999999
 	start: int & >= 0 & <= 9999999 | *0
 	increment: int & >= 1 & <= 100000 | *1
-	nextval?: string & *"nextval('\(_name)')" | {
-		if _parent != null {"nextval('\(_parent).\(_name)')"}
-	}
+	// nextval?: "nextval('\(_parent).\(_name)')"
 }
 
-#Table: #Base & {
+#Table: {
+	#Base
 	columns: [string]: #Column
 	indexes?: [string]: #Index
 	cluster?: #Cluster
 }
 
-#Column: #Base & {
+#Column: {
+	#Base
 	type: types.#ColumnType
+	primaryKey?: bool
 	nullable?: bool | *true
 	length?: int
 	precision?: int
-	primaryKey?: bool
 	default?: string | int | float | bool | [_] | {[string]: _}
 	enum?: [string | int | float]
 }
 
-#Index: #Base & {
-	columns: [string]
+#Index: {
+	#Base
+	columns: [...string]
 }
 
-#Cluster: #Index & {
+#Cluster: {
+	#Index
 	indexName: string
 }
