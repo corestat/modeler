@@ -8,7 +8,7 @@ import (
 
 demoDatabase: D.#Database & {
 	_name: "demo_database"
-	version: T.#Version & { version: "1.0.0" }
+	version: T.#Version & {version: "1.0.0"}
 	environment: "production"
 	schemas: {
 		("items"): items.schema

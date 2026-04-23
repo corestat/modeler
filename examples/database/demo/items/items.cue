@@ -12,4 +12,4 @@ schema: D.#Schema & {
 	}
 }
 
-itemIdSequence: D.#Sequence & { _name: "item_id_sequence", _parent: "items" }
+itemIdSequence: D.#Sequence & {_name: "item_id_sequence", _parent: "items"}

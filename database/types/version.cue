@@ -1,7 +1,7 @@
 package types
 
 #Version: {
-	version: string
+	version:           string
 	minimumSupported?: string
 	maximumSupported?: string
 }

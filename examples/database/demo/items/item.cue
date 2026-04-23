@@ -5,18 +5,18 @@ import (
 	T "corestat.github.io/cue/modeler/database/types"
 )
 
-#ItemColumn: D.#Column & { _parent: item._name }
-#ItemIndex: D.#Index & { _parent: item._name }
+#ItemColumn: D.#Column & {_parent: item._name}
+#ItemIndex: D.#Index & {_parent: item._name}
 
 item: D.#Table & {
-	_name: "item"
+	_name:   "item"
 	_parent: schema._name
 	columns: {
-		("item_id"): itemId
-		("item_name"): itemName
-		("item_desc"): itemDescription
+		("item_id"):          itemId
+		("item_name"):        itemName
+		("item_desc"):        itemDescription
 		("item_category_id"): itemCategoryId
-		("item_class_id"): itemClassId
+		("item_class_id"):    itemClassId
 	}
 	indexes: {
 		("idx_item_category_id"): itemCategoryIndex
@@ -24,34 +24,34 @@ item: D.#Table & {
 }
 
 itemId: #ItemColumn & {
-	_name: "item_id"
-	type: T.#Int
+	_name:      "item_id"
+	type:       T.#Int
 	primaryKey: true
 	// default: itemIdSequence.nextval
 }
 
 itemName: #ItemColumn & {
-	_name: "item_name"
-	type: T.#Varchar
-	length: 200
+	_name:    "item_name"
+	type:     T.#Varchar
+	length:   200
 	nullable: false
 }
 
 itemDescription: #ItemColumn & {
-	_name: "item_description"
-	type: T.#Varchar
+	_name:  "item_description"
+	type:   T.#Varchar
 	length: 500
 }
 
 itemCategoryId: #ItemColumn & {
-	_name: "item_category_id"
-	type: T.#UUID
+	_name:    "item_category_id"
+	type:     T.#UUID
 	nullable: false
 }
 
 itemClassId: #ItemColumn & {
-	_name: "item_class_id"
-	type: T.#UUID
+	_name:    "item_class_id"
+	type:     T.#UUID
 	nullable: false
 }
 

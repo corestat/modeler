@@ -3,51 +3,51 @@ package database
 import types "corestat.github.io/cue/modeler/database/types"
 
 #Base: {
-	state?: types.#State | *"active"
-	version?: types.#Version
+	state?:       types.#State | *"active"
+	version?:     types.#Version
 	environment?: types.#Environment | *"production"
 
-	_parent?: string
-	_name: string
+	_parent?:     string
+	_name:        string
 	renamedFrom?: string
 }
 
 #Database: {
 	#Base
-	version: types.#Version
+	version:     types.#Version
 	environment: types.#Environment
 	schemas: [string]: #Schema
 }
 
 #Schema: {
 	#Base
-	tables: [string]: #Table
+	tables: [string]:     #Table
 	sequences?: [string]: #Sequence
 }
 
 #Sequence: {
 	#Base
-	min: int & >= 0 | *0
-	max: int & >= 0 & <= 9999999 | *9999999
-	start: int & >= 0 & <= 9999999 | *0
-	increment: int & >= 1 & <= 100000 | *1
+	min:       int & >=0 | *0
+	max:       int & >=0 & <=9999999 | *9999999
+	start:     int & >=0 & <=9999999 | *0
+	increment: int & >=1 & <=100000 | *1
 	// nextval?: "nextval('\(_parent).\(_name)')"
 }
 
 #Table: {
 	#Base
-	columns: [string]: #Column
+	columns: [string]:  #Column
 	indexes?: [string]: #Index
 	cluster?: #Cluster
 }
 
 #Column: {
 	#Base
-	type: types.#ColumnType
+	type:        types.#ColumnType
 	primaryKey?: bool
-	nullable?: bool | *true
-	length?: int
-	precision?: int
+	nullable?:   bool | *true
+	length?:     int
+	precision?:  int
 	default?: string | int | float | bool | [_] | {[string]: _}
 	enum?: [string | int | float]
 }
