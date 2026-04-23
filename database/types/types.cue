@@ -11,9 +11,34 @@ package types
 	"America/Chicago" | "America/New_York" | "America/Anchorage" | "Pacific/Honolulu"
 
 
-#DataType: "int" | "bigint" | "decimal" | "varchar" | "boolean" | "date" | "timestamp" | "uuid" | "text" | "bytea"
-#ArrayType: "int[]" | "bigint[]" | "decimal[]" | "varchar[]" | "boolean[]" | "date[]" | "timestamp[]" | "uuid[]" | "text[]" | "bytea[]"
+
+#Int: string & "int"
+#BigInt: string & "bigint"
+#Decimal: string & "decimal"
+#Varchar: string & "varchar"
+#Boolean: string & "boolean"
+#Date: string & "date"
+#Timestamp: string & "timestamp"
+#UUID: string & "uuid"
+#Text: string & "text"
+#Bytea: string & "bytea"
+
+#IntArray: string & "int[]"
+#BigIntArray: string & "bigint[]"
+#DecimalArray: string & "decimal[]"
+#VarcharArray: string & "varchar[]"
+#BooleanArray: string & "boolean[]"
+#DateArray: string & "date[]"
+#TimestampArray: string & "timestamp[]"
+#UUIDArray: string & "uuid[]"
+#TextArray: string & "text[]"
+#ByteaArray: string & "bytea[]"
+
+#DataType: #Int | #BigInt | #Decimal | #Varchar | #Boolean | #Date | #Timestamp | #UUID | #Text | #Bytea
+#ArrayType: #IntArray | #BigIntArray | #DecimalArray | #VarcharArray | #BooleanArray | #DateArray | #TimestampArray | #UUIDArray | #TextArray | #ByteaArray
 #ColumnType: #DataType | #ArrayType
+
+#EmptyArray: "{}"
 
 #Command: {
 	_language: string
