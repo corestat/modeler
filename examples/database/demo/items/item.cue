@@ -27,7 +27,6 @@ itemId: #ItemColumn & {
 	_name:      "item_id"
 	type:       T.#Int
 	primaryKey: true
-	// default: itemIdSequence.nextval
 }
 
 itemName: #ItemColumn & {

@@ -31,7 +31,6 @@ import types "github.com/corestat/modeler/database/types"
 	max:       int & >=0 & <=9999999 | *9999999
 	start:     int & >=0 & <=9999999 | *0
 	increment: int & >=1 & <=100000 | *1
-	// nextval?: "nextval('\(_parent).\(_name)')"
 }
 
 #Table: {
