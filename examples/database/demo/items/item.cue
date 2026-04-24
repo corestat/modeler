@@ -1,8 +1,8 @@
 package items
 
 import (
-	D "corestat.github.io/cue/modeler/database"
-	T "corestat.github.io/cue/modeler/database/types"
+	D "github.com/corestat/modeler/database"
+	T "github.com/corestat/modeler/database/types"
 )
 
 #ItemColumn: D.#Column & {_parent: item._name}

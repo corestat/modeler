@@ -1,6 +1,6 @@
 package database
 
-import types "corestat.github.io/cue/modeler/database/types"
+import types "github.com/corestat/modeler/database/types"
 
 #Base: {
 	state?:       types.#State | *"active"

@@ -1,4 +1,4 @@
-module: "corestat.github.io/cue/modeler"
+module: "github.com/corestat/modeler"
 language: {
 	version: "v0.16.1"
 }

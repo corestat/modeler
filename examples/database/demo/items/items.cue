@@ -1,6 +1,6 @@
 package items
 
-import D "corestat.github.io/cue/modeler/database"
+import D "github.com/corestat/modeler/database"
 
 schema: D.#Schema & {
 	_name: "items"
