@@ -35,21 +35,22 @@ import types "github.com/corestat/modeler/database/types"
 
 #Table: {
 	#Base
-	columns: [string]:  #Column
+	columns: Columns
 	indexes?: [string]: #Index
 	cluster?: #Cluster
 }
 
-// #Column: {
-// 	#Base
-// 	type:        types.#ColumnType
-// 	primaryKey?: bool
-// 	nullable?:   bool | *true
-// 	length?:     int
-// 	precision?:  int
-// 	default?: string | int | float | bool | [_] | {[string]: _}
-// 	enum?: [string | int | float]
-// }
+Columns: [Name=_]: {
+	_name: Name
+	type: types.#ColumnType
+	primaryKey?: bool
+	nullable?: bool | *true
+	length?: int
+	precision?: int
+	default?: string | int | float | bool | [_] | {[string]: _}
+	enum?: [string | int | float]
+}
+
 
 #Index: {
 	#Base
