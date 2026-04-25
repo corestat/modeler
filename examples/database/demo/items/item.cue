@@ -24,32 +24,32 @@ item: D.#Table & {
 }
 
 itemId: #ItemColumn & {
-	_name:      "item_id"
+	name:      "item_id"
 	type:       T.#Int
 	primaryKey: true
 }
 
 itemName: #ItemColumn & {
-	_name:    "item_name"
+	name:    "item_name"
 	type:     T.#Varchar
 	length:   200
 	nullable: false
 }
 
 itemDescription: #ItemColumn & {
-	_name:  "item_description"
+	name:  "item_description"
 	type:   T.#Varchar
 	length: 500
 }
 
 itemCategoryId: #ItemColumn & {
-	_name:    "item_category_id"
+	name:    "item_category_id"
 	type:     T.#UUID
 	nullable: false
 }
 
 itemClassId: #ItemColumn & {
-	_name:    "item_class_id"
+	name:    "item_class_id"
 	type:     T.#UUID
 	nullable: false
 }
