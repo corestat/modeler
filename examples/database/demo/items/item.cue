@@ -11,7 +11,7 @@ import (
 item: D.#Table & {
 	_name:   "item"
 	_parent: schema._name
-	columns: D.Columns & {
+	columns: {
 		item_id: {
 			type: T.#Int
 			primaryKey: true
