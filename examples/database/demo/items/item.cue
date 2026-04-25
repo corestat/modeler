@@ -11,47 +11,32 @@ import (
 item: D.#Table & {
 	_name:   "item"
 	_parent: schema._name
-	columns: {
-		("item_id"):          itemId
-		("item_name"):        itemName
-		("item_desc"):        itemDescription
-		("item_category_id"): itemCategoryId
-		("item_class_id"):    itemClassId
+	columns: D.Columns & {
+		item_id: {
+			type: T.#Int
+			primaryKey: true
+		}
+		item_name: {
+			type: T.#Varchar
+			length: 200
+			nullable: false
+		}
+		item_desc: {
+			type: T.#Varchar
+			length: 500
+		}
+		item_category_id: {
+			type: T.#UUID
+			nullable: false
+		}
+		item_class_id: {
+			type: T.#UUID
+			nullable: false
+		}
 	}
 	indexes: {
 		("idx_item_category_id"): itemCategoryIndex
 	}
-}
-
-itemId: #ItemColumn & {
-	name:      "item_id"
-	type:       T.#Int
-	primaryKey: true
-}
-
-itemName: #ItemColumn & {
-	name:    "item_name"
-	type:     T.#Varchar
-	length:   200
-	nullable: false
-}
-
-itemDescription: #ItemColumn & {
-	name:  "item_description"
-	type:   T.#Varchar
-	length: 500
-}
-
-itemCategoryId: #ItemColumn & {
-	name:    "item_category_id"
-	type:     T.#UUID
-	nullable: false
-}
-
-itemClassId: #ItemColumn & {
-	name:    "item_class_id"
-	type:     T.#UUID
-	nullable: false
 }
 
 itemCategoryIndex: #ItemIndex & {
