@@ -40,4 +40,3 @@ itemTable: D.#Table & {
 		}
 	}
 }
-
