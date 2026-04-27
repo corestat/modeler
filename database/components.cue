@@ -6,9 +6,6 @@ import types "github.com/corestat/modeler/database/types"
 	state?:       types.#State | *"active"
 	version?:     types.#Version
 	environment?: types.#Environment | *"production"
-
-	_parent?:     string
-	_name:        string
 	renamedFrom?: string
 }
 
@@ -26,7 +23,6 @@ import types "github.com/corestat/modeler/database/types"
 }
 
 #Sequence: {
-	#Base
 	min:       int & >=0 | *0
 	max:       int & >=0 & <=9999999 | *9999999
 	start:     int & >=0 & <=9999999 | *0
@@ -35,13 +31,14 @@ import types "github.com/corestat/modeler/database/types"
 
 #Table: {
 	#Base
-	columns: Columns
+	columns: #Columns
 	indexes?: [string]: #Index
 	cluster?: #Cluster
 }
 
-Columns: [Name=_]: {
+#Columns: [Name=_]: {
 	_name: Name
+	#Base
 	type: types.#ColumnType
 	primaryKey?: bool
 	nullable?: bool | *true
