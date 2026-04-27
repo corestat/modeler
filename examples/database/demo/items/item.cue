@@ -5,7 +5,6 @@ import (
 	T "github.com/corestat/modeler/database/types"
 )
 
-#ItemColumn: D.#Column & {_parent: item._name}
 #ItemIndex: D.#Index & {_parent: item._name}
 
 item: D.#Table & {
