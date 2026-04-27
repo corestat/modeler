@@ -5,21 +5,19 @@ import (
 	T "github.com/corestat/modeler/database/types"
 )
 
-price: D.#Table & {
-	_name: "price"
-	_parent: schema._name
+priceTable: D.#Table & {
 	columns: {
 		price_id: {
-			type: T.#Int
+			type:       T.#Int
 			primaryKey: true
 		}
 		item_id: {
-			type: T.#Int
+			type:     T.#Int
 			nullable: false
 		}
 		price_amt: {
-			type: T.#Decimal
+			type:     T.#Decimal
 			nullable: false
 		}
-	}	
+	}
 }

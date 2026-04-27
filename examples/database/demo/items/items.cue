@@ -5,8 +5,8 @@ import D "github.com/corestat/modeler/database"
 schema: D.#Schema & {
 	_name: "items"
 	tables: {
-		(item._name): item
-		(price._name): price
+		item: itemTable
+		price: priceTable
 	}
 	sequences: {
 		("item_id_sequence"): itemIdSequence
