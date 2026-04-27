@@ -37,7 +37,12 @@ import types "github.com/corestat/modeler/database/types"
 }
 
 #Columns: [Name=_]: {
+	#Column
 	_name: Name
+}
+
+#Column: {
+	_name?: string
 	#Base
 	type: types.#ColumnType
 	primaryKey?: bool
