@@ -6,6 +6,7 @@ schema: D.#Schema & {
 	_name: "items"
 	tables: {
 		(item._name): item
+		(price._name): price
 	}
 	sequences: {
 		("item_id_sequence"): itemIdSequence
