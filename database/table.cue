@@ -1,5 +1,10 @@
 package database
 
+import (
+	B "github.com/corestat/modeler/database/base"
+	C "github.com/corestat/modeler/database/column"
+)
+
 #Tables: [Name=_]: {
 	#Table
 	_name: Name
@@ -7,8 +12,8 @@ package database
 
 #Table: {
 	_name?: string
-	#Base
-	columns:  #Columns
-	indexes?: #Indexes
-	cluster?: #Cluster
+	B.#Base
+	columns:  C.#Columns
+	indexes?: C.#Indexes
+	cluster?: C.#Cluster
 }
