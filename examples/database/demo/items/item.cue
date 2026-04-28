@@ -7,33 +7,28 @@ import (
 
 itemTable: D.#Table & {
 	columns: {
-		item_id: {
-			type:       T.#Int
-			primaryKey: true
+		item_id: D.#PrimaryKey & {
+			type: T.#Int
 		}
-		item_name: {
-			type:     T.#Varchar
-			length:   200
-			nullable: false
+		item_name: D.#NotNullable & {
+			type:   T.#Varchar
+			length: 200
 		}
 		item_desc: {
 			type:   T.#Varchar
 			length: 500
 		}
-		item_status: {
-			type: T.#Varchar
-			length: 30
-			nullable: false
+		item_status: D.#NotNullable & {
+			type:    T.#Varchar
+			length:  30
 			default: "active"
 			enum: ["active", "inactive", "discontinued"]
 		}
-		item_category_id: {
-			type:     T.#UUID
-			nullable: false
+		item_category_id: D.#NotNullable & {
+			type: T.#UUID
 		}
-		item_class_id: {
-			type:     T.#UUID
-			nullable: false
+		item_class_id: D.#NotNullable & {
+			type: T.#UUID
 		}
 	}
 	indexes: {

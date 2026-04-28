@@ -19,6 +19,15 @@ import T "github.com/corestat/modeler/database/types"
 	enum?: [...string | int | float]
 }
 
+#NotNullable: #Column & {
+	nullable: false
+}
+
+#PrimaryKey: #Column & {
+	primaryKey: true
+	nullable:   false
+}
+
 #Indexes: [Name=_]: {
 	#Index
 	_name: Name
