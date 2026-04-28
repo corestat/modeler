@@ -1,4 +1,4 @@
-package database
+package base
 
 import T "github.com/corestat/modeler/database/types"
 
@@ -7,11 +7,4 @@ import T "github.com/corestat/modeler/database/types"
 	version?:     T.#Version
 	environment?: T.#Environment | *"production"
 	renamedFrom?: string
-}
-
-#Database: {
-	#Base
-	version:     T.#Version
-	environment: T.#Environment
-	schemas:     #Schemas
 }

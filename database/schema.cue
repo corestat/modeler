@@ -1,5 +1,7 @@
 package database
 
+import B "github.com/corestat/modeler/database/base"
+
 #Schemas: [Name=_]: {
 	#Schema
 	_name: Name
@@ -7,7 +9,7 @@ package database
 
 #Schema: {
 	_name?: string
-	#Base
+	B.#Base
 	tables:     #Tables
 	sequences?: #Sequences
 }

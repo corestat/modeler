@@ -1,5 +1,7 @@
 package database
 
+import B "github.com/corestat/modeler/database/base"
+
 #Sequences: [Name=_]: {
 	#Sequence
 	_name: Name
@@ -7,7 +9,7 @@ package database
 
 #Sequence: {
 	_name?: string
-	#Base
+	B.#Base
 	min:       int & >=0 | *0
 	max:       int & >=0 & <=9999999 | *9999999
 	start:     int & >=0 & <=9999999 | *0
