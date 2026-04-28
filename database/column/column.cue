@@ -1,6 +1,5 @@
 package column
 
-
 import (
 	B "github.com/corestat/modeler/database/base"
 	T "github.com/corestat/modeler/database/types"
@@ -41,13 +40,13 @@ import (
 }
 
 #Decimal: #Column & {
-	type: T.#Decimal
-	length: int
+	type:      T.#Decimal
+	length:    int
 	precision: int
 }
 
 #Varchar: #Column & {
-	type: T.#Varchar
+	type:    T.#Varchar
 	length?: int | *500
 }
 
@@ -60,7 +59,7 @@ import (
 }
 
 #Timestamp: #Column & {
-	type: T.#Timestamp
+	type:     T.#Timestamp
 	default?: string | *"postgres::TIMEZONE('UTC', CURRENT_TIMESTAMP(0))"
 }
 
@@ -77,52 +76,52 @@ import (
 }
 
 #IntArray: #Column & {
-	type: T.#IntArray
+	type:     T.#IntArray
 	default?: string | *T.#EmptyArray
 }
 
 #BigIntArray: #Column & {
-	type: T.#BigIntArray
+	type:     T.#BigIntArray
 	default?: string | *T.#EmptyArray
 }
 
 #DecimalArray: #Column & {
-	type: T.#DecimalArray
+	type:     T.#DecimalArray
 	default?: string | *T.#EmptyArray
 }
 
 #VarcharArray: #Column & {
-	type: T.#VarcharArray
+	type:     T.#VarcharArray
 	default?: string | *T.#EmptyArray
 }
 
 #BooleanArray: #Column & {
-	type: T.#BooleanArray
+	type:     T.#BooleanArray
 	default?: string | *T.#EmptyArray
 }
 
 #DateArray: #Column & {
-	type: T.#DateArray
+	type:     T.#DateArray
 	default?: string | *T.#EmptyArray
 }
 
 #TimestampArray: #Column & {
-	type: T.#TimestampArray
+	type:     T.#TimestampArray
 	default?: string | *T.#EmptyArray
 }
 
 #UUIDArray: #Column & {
-	type: T.#UUIDArray
+	type:     T.#UUIDArray
 	default?: string | *T.#EmptyArray
 }
 
 #TextArray: #Column & {
-	type: T.#TextArray
+	type:     T.#TextArray
 	default?: string | *T.#EmptyArray
 }
 
 #ByteaArray: #Column & {
-	type: T.#ByteaArray
+	type:     T.#ByteaArray
 	default?: string | *T.#EmptyArray
 }
 

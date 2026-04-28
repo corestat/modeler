@@ -9,8 +9,6 @@ schema: D.#Schema & {
 		price: priceTable
 	}
 	sequences: {
-		("item_id_sequence"): itemIdSequence
+		item_id_sequence: D.#Sequence
 	}
 }
-
-itemIdSequence: D.#Sequence & {_name: "item_id_sequence", _parent: "items"}
