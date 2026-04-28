@@ -16,7 +16,7 @@ import T "github.com/corestat/modeler/database/types"
 	length?:     int
 	precision?:  int
 	default?: string | int | float | bool | [_] | {[string]: _}
-	enum?: [string | int | float]
+	enum?: [...string | int | float]
 }
 
 #Indexes: [Name=_]: {

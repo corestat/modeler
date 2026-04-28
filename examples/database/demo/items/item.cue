@@ -20,6 +20,13 @@ itemTable: D.#Table & {
 			type:   T.#Varchar
 			length: 500
 		}
+		item_status: {
+			type: T.#Varchar
+			length: 30
+			nullable: false
+			default: "active"
+			enum: ["active", "inactive", "discontinued"]
+		}
 		item_category_id: {
 			type:     T.#UUID
 			nullable: false
