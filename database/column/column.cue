@@ -58,10 +58,15 @@ import (
 	type: T.#Date
 }
 
+#TimestampND: #Column & {
+	type:    T.#Timestamp
+	length:  int | *0
+}
+
 #Timestamp: #Column & {
 	type:    T.#Timestamp
 	length:  int | *0
-	default: string | *"postgres::TIMEZONE('UTC', CURRENT_TIMESTAMP(0))" | null
+	default: string | *"postgres::TIMEZONE('UTC', CURRENT_TIMESTAMP(0))"
 }
 
 #UUID: #Column & {

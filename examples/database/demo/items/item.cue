@@ -7,7 +7,7 @@ import (
 
 itemTable: D.#Table & {
 	columns: {
-		item_id: C.#PrimaryKey & C.#Int
+		item_id:   C.#PrimaryKey & C.#Int
 		item_name: C.#NotNullable & C.#Varchar
 		item_desc: C.#Varchar & {length: 1000}
 		item_status: C.#NotNullable & C.#Varchar & {
@@ -19,6 +19,7 @@ itemTable: D.#Table & {
 		item_class_id:    C.#NotNullable & C.#UUID
 		created_ts:       C.#NotNullable & C.#Timestamp
 		updated_ts:       C.#NotNullable & C.#Timestamp
+		locked_ts:        C.#TimestampND
 	}
 	indexes: {
 		idx_item_category_id: {
