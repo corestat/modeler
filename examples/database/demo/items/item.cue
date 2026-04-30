@@ -8,17 +8,19 @@ import (
 itemTable: D.#Table & {
 	columns: {
 		item_id:   C.#PrimaryKey & C.#Int
-		item_name: C.#NotNullable & C.#Varchar
-		item_desc: C.#Varchar & {length: 1000}
-		item_status: C.#NotNullable & C.#Varchar & {
+		item_name: C.#NotNull & C.#Varchar
+		item_desc: C.#Varchar & {
+			length: 1000
+		}
+		item_status: C.#NotNull & C.#Varchar & {
 			length:  30
 			default: "active"
 			enum: ["active", "inactive", "discontinued"]
 		}
-		item_category_id: C.#NotNullable & C.#UUID
-		item_class_id:    C.#NotNullable & C.#UUID
-		created_ts:       C.#NotNullable & C.#Timestamp
-		updated_ts:       C.#NotNullable & C.#Timestamp
+		item_category_id: C.#NotNull & C.#UUID
+		item_class_id:    C.#NotNull & C.#UUID
+		created_ts:       C.#NotNull & C.#Timestamp
+		updated_ts:       C.#NotNull & C.#Timestamp
 		locked_ts:        C.#TimestampND
 	}
 	indexes: {

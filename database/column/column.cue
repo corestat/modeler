@@ -22,7 +22,7 @@ import (
 	enum?: [...string | int | float]
 }
 
-#NotNullable: #Column & {
+#NotNull: #Column & {
 	nullable: false
 }
 
@@ -46,7 +46,7 @@ import (
 }
 
 #Varchar: #Column & {
-	type:    T.#Varchar
+	type:   T.#Varchar
 	length: int & >0 & <=1000 | *500
 }
 
@@ -59,8 +59,8 @@ import (
 }
 
 #TimestampND: #Column & {
-	type:    T.#Timestamp
-	length:  int | *0
+	type:   T.#Timestamp
+	length: int | *0
 }
 
 #Timestamp: #Column & {
