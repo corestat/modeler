@@ -1,0 +1,100 @@
+name: Release On PR Merge
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  release:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Extract version from source branch
+        id: version
+        shell: bash
+        run: |
+          BRANCH="${{ github.event.pull_request.head.ref }}"
+
+          if [[ "$BRANCH" =~ ^[^/]+/([0-9]+\.[0-9]+\.[0-9]+)/[^/]+$ ]]; then
+            VERSION="${BASH_REMATCH[1]}"
+            TAG="v$VERSION"
+            echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+            echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+            echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          else
+            echo "Invalid branch format: $BRANCH"
+            echo "Expected: <type>/<version>/<description>"
+            exit 1
+          fi
+
+      - name: Check out merged code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+
+      - name: Fail if release tag already exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "${{ steps.version.outputs.tag }}" >/dev/null 2>&1; then
+            echo "Release ${{
+              steps.version.outputs.tag
+            }} already exists."
+            exit 1
+          fi
+
+          if git rev-parse "${{ steps.version.outputs.tag }}" >/dev/null 2>&1; then
+            echo "Git tag ${{
+              steps.version.outputs.tag
+            }} already exists."
+            exit 1
+          fi
+
+      - name: Build release notes from PR
+        id: notes
+        shell: bash
+        run: |
+          {
+            echo "file=release-notes.md" >> "$GITHUB_OUTPUT"
+            echo "# ${{ steps.version.outputs.tag }}"
+            echo
+            echo "Merged PR: #${{ github.event.pull_request.number }}"
+            echo
+            echo "Source branch: ${{ steps.version.outputs.branch }}"
+            echo
+            echo "## Summary"
+            echo
+            echo "${{ github.event.pull_request.title }}"
+            echo
+            if [ -n "${{ github.event.pull_request.body }}" ]; then
+              echo "## Details"
+              echo
+              printf '%s\n' "${{ github.event.pull_request.body }}"
+            fi
+          } > release-notes.md
+
+      - name: Create release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ steps.version.outputs.tag }}" \
+            --target "${{ github.event.pull_request.merge_commit_sha }}" \
+            --title "${{ steps.version.outputs.tag }}" \
+            --notes-file "${{ steps.notes.outputs.file }}"
+
+      - name: Set up CUE
+        uses: cue-lang/setup-cue@v1
+        with:
+          version: v0.14.2
+
+      - name: Publish to custom registry
+        working-directory: fast
+        env:
+          CUE_PACKAGE_TOKEN: ${{ secrets.CUE_PACKAGE_TOKEN }}
+          CUE_REGISTRY: github.com/corestat=ghcr.io/corestat/cuemods
+        run: cue mod publish "${{ steps.version.outputs.tag }}"
