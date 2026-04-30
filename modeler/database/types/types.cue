@@ -34,7 +34,7 @@ package types
 #ArrayType:  #IntArray | #BigIntArray | #DecimalArray | #VarcharArray | #BooleanArray | #DateArray | #TimestampArray | #UUIDArray | #TextArray | #ByteaArray
 #ColumnType: #DataType | #ArrayType
 
-#EmptyArray: "{}"
+#EmptyArray: "{}
 
 #Command: {
 	_language: string
