@@ -47,7 +47,7 @@ import (
 
 #Varchar: #Column & {
 	type:    T.#Varchar
-	length?: int | *500
+	length: int & >0 & <=1000 | *500
 }
 
 #Boolean: #Column & {
@@ -59,8 +59,9 @@ import (
 }
 
 #Timestamp: #Column & {
-	type:     T.#Timestamp
-	default?: string | *"postgres::TIMEZONE('UTC', CURRENT_TIMESTAMP(0))"
+	type:    T.#Timestamp
+	length:  int | *0
+	default: string | *"postgres::TIMEZONE('UTC', CURRENT_TIMESTAMP(0))" | null
 }
 
 #UUID: #Column & {
