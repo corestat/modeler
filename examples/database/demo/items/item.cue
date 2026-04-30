@@ -8,8 +8,8 @@ import (
 itemTable: D.#Table & {
 	columns: {
 		item_id: C.#PrimaryKey & C.#Int
-		item_name: C.#NotNullable & C.#Varchar & {length: 200}
-		item_desc: C.#Varchar & {length: 500}
+		item_name: C.#NotNullable & C.#Varchar
+		item_desc: C.#Varchar & {length: 1000}
 		item_status: C.#NotNullable & C.#Varchar & {
 			length:  30
 			default: "active"
@@ -17,6 +17,8 @@ itemTable: D.#Table & {
 		}
 		item_category_id: C.#NotNullable & C.#UUID
 		item_class_id:    C.#NotNullable & C.#UUID
+		created_ts:       C.#NotNullable & C.#Timestamp
+		updated_ts:       C.#NotNullable & C.#Timestamp
 	}
 	indexes: {
 		idx_item_category_id: {
