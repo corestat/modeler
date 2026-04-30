@@ -88,7 +88,7 @@ jobs:
             --notes-file "${{ steps.notes.outputs.file }}"
 
       - name: Set up CUE
-        uses: cue-lang/setup-cue@v1
+        uses: cue-lang/setup-cue@v1.0.1
         with:
           version: v0.14.2
 
