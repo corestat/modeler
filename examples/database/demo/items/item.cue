@@ -17,11 +17,12 @@ itemTable: D.#Table & {
 			default: "active"
 			enum: ["active", "inactive", "discontinued"]
 		}
-		item_category_id: C.#NotNull & C.#UUID
-		item_class_id:    C.#NotNull & C.#UUID
-		created_ts:       C.#NotNull & C.#Timestamp
-		updated_ts:       C.#NotNull & C.#Timestamp
-		locked_ts:        C.#TimestampND
+		item_category_id:  C.#NotNull & C.#UUID
+		item_class_id:     C.#NotNull & C.#UUID
+		created_ts:        C.#NotNull & C.#Timestamp
+		updated_ts:        C.#NotNull & C.#Timestamp
+		locked_ts:         C.#TimestampND
+		deprecated_column: C.#Deprecated
 	}
 	indexes: {
 		idx_item_category_id: {
