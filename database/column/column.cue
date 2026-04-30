@@ -6,7 +6,7 @@ import (
 )
 
 #Columns: [Name=_]: {
-	#Column
+	#Column | #Deprecated
 	_name: Name
 }
 
@@ -20,6 +20,12 @@ import (
 	precision?:  int
 	default?: string | int | float | bool | [_] | {[string]: _}
 	enum?: [...string | int | float]
+}
+
+#Deprecated: {
+	_name?: string
+	B.#Base
+	state: T.#State & "deprecated"
 }
 
 #NotNull: #Column & {
