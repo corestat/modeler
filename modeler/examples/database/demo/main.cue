@@ -1,8 +1,8 @@
 package demo
 
 import (
-	D "github.com/corestat/modeler/database"
-	T "github.com/corestat/modeler/database/types"
+	D "github.com/corestat/modeler/database/postgres"
+	T "github.com/corestat/modeler/database/postgres/types"
 	items "github.com/corestat/modeler/examples/database/demo/items"
 )
 

@@ -1,8 +1,8 @@
 package items
 
 import (
-	D "github.com/corestat/modeler/database"
-	C "github.com/corestat/modeler/database/column"
+	D "github.com/corestat/modeler/database/postgres"
+	C "github.com/corestat/modeler/database/postgres/column"
 )
 
 itemTable: D.#Table & {
