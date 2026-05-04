@@ -1,8 +1,8 @@
 package database
 
 import (
-	B "github.com/corestat/modeler/database/base"
-	T "github.com/corestat/modeler/database/types"
+	B "github.com/corestat/modeler/database/postgres/base"
+	T "github.com/corestat/modeler/database/postgres/types"
 )
 
 #Database: {

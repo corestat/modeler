@@ -1,6 +1,6 @@
 package database
 
-import B "github.com/corestat/modeler/database/base"
+import B "github.com/corestat/modeler/database/postgres/base"
 
 #Schemas: [Name=_]: {
 	#Schema

@@ -1,6 +1,6 @@
 package base
 
-import T "github.com/corestat/modeler/database/types"
+import T "github.com/corestat/modeler/database/postgres/types"
 
 #Base: {
 	state?:       T.#State | *"active"
