@@ -1,7 +1,7 @@
 package column
 
 import (
-	B "github.com/corestat/modeler/database/postgres/base"
+	B "github.com/corestat/modeler/database/base"
 	T "github.com/corestat/modeler/database/postgres/types"
 )
 
