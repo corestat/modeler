@@ -1,13 +1,11 @@
 package postgres
 
-import (
-	B "github.com/corestat/modeler/database/base"
-	T "github.com/corestat/modeler/database/postgres/types"
-)
+import B "github.com/corestat/modeler/database/base"
+
 
 #Database: {
 	B.#Base
-	version:     T.#Version
-	environment: T.#Environment
+	version:     B.#Version
+	environment: B.#Environment
 	schemas:     #Schemas
 }
