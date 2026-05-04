@@ -1,4 +1,4 @@
-package column
+package postgres
 
 import (
 	B "github.com/corestat/modeler/database/base"

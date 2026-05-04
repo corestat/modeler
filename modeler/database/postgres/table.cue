@@ -1,9 +1,6 @@
 package postgres
 
-import (
-	B "github.com/corestat/modeler/database/base"
-	C "github.com/corestat/modeler/database/postgres/column"
-)
+import B "github.com/corestat/modeler/database/base"
 
 #Tables: [Name=_]: {
 	#Table
@@ -13,7 +10,7 @@ import (
 #Table: {
 	_name?: string
 	B.#Base
-	columns:  C.#Columns
-	indexes?: C.#Indexes
-	cluster?: C.#Cluster
+	columns:  #Columns
+	indexes?: #Indexes
+	cluster?: #Cluster
 }
