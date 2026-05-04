@@ -1,6 +1,6 @@
 package items
 
-import D "github.com/corestat/modeler/database"
+import D "github.com/corestat/modeler/database/postgres"
 
 schema: D.#Schema & {
 	_name: "items"

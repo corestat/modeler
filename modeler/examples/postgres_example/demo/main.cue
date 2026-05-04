@@ -1,9 +1,9 @@
 package demo
 
 import (
-	D "github.com/corestat/modeler/database"
-	T "github.com/corestat/modeler/database/types"
-	items "github.com/corestat/modeler/examples/database/demo/items"
+	D "github.com/corestat/modeler/database/postgres"
+	T "github.com/corestat/modeler/database/postgres/types"
+	items "github.com/corestat/modeler/examples/postgres_example/demo/items"
 )
 
 demoDatabase: D.#Database & {
