@@ -1,10 +1,19 @@
 package base
 
-import T "github.com/corestat/modeler/database/postgres/types"
+#Environment: "production" | "development" | "local" | "planned"
+
+#State: "active" | "planned" | "deprecated" | "ignored"
+
+#Version: {
+	version:           string
+	minimumSupported?: string
+	maximumSupported?: string
+}
+
 
 #Base: {
-	state?:       T.#State | *"active"
-	version?:     T.#Version
-	environment?: T.#Environment | *"production"
+	state?:       #State | *"active"
+	version?:     #Version
+	environment?: #Environment | *"production"
 	renamedFrom?: string
 }

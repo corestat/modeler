@@ -25,7 +25,7 @@ import (
 #Deprecated: {
 	_name?: string
 	B.#Base
-	state: T.#State & "deprecated"
+	state: B.#State & "deprecated"
 }
 
 #NotNull: #Column & {
