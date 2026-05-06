@@ -92,9 +92,3 @@ jobs:
         with:
           version: v0.16.1
 
-      - name: Publish to custom registry
-        working-directory: fast
-        env:
-          CUE_PACKAGE_TOKEN: ${{ secrets.CUE_PACKAGE_TOKEN }}
-          CUE_REGISTRY: github.com/corestat=ghcr.io/corestat/cuemods
-        run: cue mod publish "${{ steps.version.outputs.tag }}"
