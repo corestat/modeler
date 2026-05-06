@@ -21,14 +21,12 @@
 
 package dotenv
 
-#PathPattern: "^(\\$\\{[a-zA-Z0-9_]+\\}|[a-zA-Z0-9./_-])+$"
-
 #Environment: string & ("local" | "dev" | "prod")
-#Path: =~#PathPattern
+#Path: =~"^(\\$\\{[a-zA-Z0-9_]+\\}|[a-zA-Z0-9./_-])+$"
 #UUID: =~"^\\w{8}-\\w{4}-\\w{4}-\\w{4}-\\w{12}$"
 #URL: =~"^https?\\:\\/\\/(?:(?:(?:\\w|\\-)+\\.)+(?:com|org|edu|net|dev|sh)|localhost)(?:\\:\\d{2,6})?(?:\\/(?:\\w|\\_\\-|\\.|\\%|\\?|\\=|\\.)+)*$"
 
 
 #EnvFile: {
-	[_]: #Environment | #Path | #UUID | string | number
+	[_]: #Environment | #Path | #UUID | #URL | string | number
 }
